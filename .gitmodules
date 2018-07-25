@@ -1,0 +1,3 @@
+[submodule "blocks/cinder-wmfvideo"]
+	path = blocks/cinder-wmfvideo
+	url = https://github.com/morphogencc/cinder-wmfvideo

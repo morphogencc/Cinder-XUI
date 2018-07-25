@@ -12,7 +12,7 @@ XAsset::XAsset( ci::fs::path relativePath, std::function<void(ci::DataSourceRef)
 
 void XAsset::refresh()
 {
-    std::time_t time = toTime(std::filesystem::last_write_time( ci::app::getAssetPath( mRelativePath ) ));
+    std::time_t time = toTime(ci::fs::last_write_time( ci::app::getAssetPath( mRelativePath ) ));
     if( time > mLastTimeWritten ){
         mLastTimeWritten   = time;
         notify();

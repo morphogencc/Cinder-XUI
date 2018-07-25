@@ -1,0 +1,334 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="blocks">
+      <UniqueIdentifier>{172f93c8-a0d6-4971-bf55-7196a3287b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\cinder-xui">
+      <UniqueIdentifier>{2dd4f4be-ea4b-4d18-9503-8612a9994216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\cinder-xui\src">
+      <UniqueIdentifier>{7d545528-d1ea-4900-95fa-157a12221cd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\cinder-xui\include">
+      <UniqueIdentifier>{5f825484-3873-4075-a131-16ab5ebf5e84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\cinder-xui\src\lua">
+      <UniqueIdentifier>{a55b3e67-2678-4893-9815-5abe27b56580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\cinder-wmfvideo">
+      <UniqueIdentifier>{25f26a66-d5ee-4f69-b405-d748efa316e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\cinder-wmfvideo\src">
+      <UniqueIdentifier>{efff8bdd-1a0b-4df4-bb8a-8d573f56db4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\cinder-wmfvideo\src\presenter">
+      <UniqueIdentifier>{369f412e-3d70-4c3a-af91-e97482938137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\cinder-wmfvideo\src\presenter\common">
+      <UniqueIdentifier>{cbeacca3-0db8-48cf-bc96-2814b23413a9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\XUITestApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\XUITestApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\src\XAssetManager.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XButton.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XCarousel.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XControl.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XImage.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XMovie.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XNode.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XRect.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XScene.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XScript.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XSVG.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XText.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XUI.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\XWeb.cpp">
+      <Filter>blocks\cinder-xui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lapi.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lauxlib.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lbaselib.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lcode.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\ldblib.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\ldebug.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\ldo.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\ldump.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lfunc.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lgc.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\linit.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\liolib.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\llex.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lmathlib.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lmem.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\loadlib.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lobject.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lopcodes.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\loslib.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lparser.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lstring.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lstrlib.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\ltable.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\ltablib.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\ltm.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lua.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\luac.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lundump.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lvm.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lzio.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\print.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\include\lua\lstate.c">
+      <Filter>blocks\cinder-xui\src\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\cinder-wmfvideo\src\ciWMFVideoPlayer.cpp">
+      <Filter>blocks\cinder-wmfvideo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\cinder-wmfvideo\src\ciWMFVideoPlayerUtils.cpp">
+      <Filter>blocks\cinder-wmfvideo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\PresentEngine.cpp">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\Presenter.cpp">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\PresenterHelpers.cpp">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\scheduler.cpp">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XAssetManager.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XButton.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XCarousel.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XControl.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XImage.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XLuaBindings.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XMovie.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XNode.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XRect.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XScene.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XScript.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XSVG.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XText.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XUI.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\XWeb.h">
+      <Filter>blocks\cinder-xui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\ciWMFVideoPlayer.h">
+      <Filter>blocks\cinder-wmfvideo\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\ciWMFVideoPlayerUtils.h">
+      <Filter>blocks\cinder-wmfvideo\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\EVRPresenter.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\EVRPresenterUuid.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\PresentEngine.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\Presenter.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\PresenterHelpers.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\scheduler.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\AsyncCB.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\BufferLock.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\ClassFactory.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\common.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\critsec.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\GrowArray.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\linklist.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\logging.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\logmediatype.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\mediatype.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\mfutils.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\PropVar.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\registry.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\TinyMap.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\cinder-wmfvideo\src\presenter\common\trace.h">
+      <Filter>blocks\cinder-wmfvideo\src\presenter\common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -8,7 +8,7 @@ __Features:__
 * Scene graph system for nodes
 * Touch handling.
 * [Lua](http://www.lua.org/) Scripting
-* Support for quicktime video playback
+* Support for 4k video playback
 * Dynamic reloading of changed XUI assets
 * Modal scenes (popups)
 * Viewing of HTML/Web content via [Awesomium](http://www.awesomium.com/)
@@ -34,8 +34,7 @@ git clone git@github.com:stimulant/Cinder-XUI.git XUI
 cd XUI
 git submodule update --init --recursive
 ```
-2. Install Quicktime from [here](http://www.apple.com/quicktime/download/).
-3. Open UITest.vcxproj in samples\UITest\vc2013 and hit F5 to build and run.
+3. Open XUITest.vcxproj in samples\XUITest\vc2017 and hit F5 to build and run.
 
 ## Awesomium Setup
 (necessary if you want to use the Web Node to view HTML/Web Content)
@@ -98,7 +97,7 @@ You can provide states for nodes or the scene that are either activated via a bu
     </State>
 
     <Rect id="rect" x="60" y="50" width="120" height="120" opacity="0"/>
-    
+
     <!-- pressing this button will trigger the showRect state and show the Rect above -->
     <Button id="showButton" default="showButton.png" press="showButton_press.png" x="60" y="300" setState="showRect"/>
 </Scene>
@@ -115,7 +114,7 @@ InOutQuad | Easing equation for a quadratic (t^2) ease-in/out, accelerating unti
 InCubic | Easing equation function for a cubic (t^3) ease-in, accelerating from zero velocity
 OutCubic | Easing equation for a cubic (t^3) ease-out, decelerating to zero velocity
 InOutCubic | Easing equation for a cubic (t^3) ease-in/out, accelerating until halfway, then decelerating
-InQuart | Easing equation for a quartic (t^4) ease-in, accelerating from zero velocity 
+InQuart | Easing equation for a quartic (t^4) ease-in, accelerating from zero velocity
 OutQuart | Easing equation for a quartic (t^4) ease-out, decelerating to zero velocity
 InOutQuart | Easing equation for a quartic (t^4) ease-in/out, accelerating until halfway, then decelerating
 InQuint | Easing equation function for a quintic (t^5) ease-in, accelerating from zero velocity
@@ -445,7 +444,7 @@ The Control node allows you to reference a separate XUI scene as a control in a 
 Example:
 
 ```xml
-<Scene id="scene"> 
+<Scene id="scene">
     <Control scene="richTextTest.xui" x="200" y="100"/>
 </Scene>
 ```

@@ -25,16 +25,17 @@ void XMovie::draw(float opacity)
 {
     // Matrix is already applied so we can draw at origin
     gl::color( mColor * ColorA(1.0f, 1.0f, 1.0f, mOpacity * opacity) );
-	if( mFrameTexture )
-		gl::draw( mFrameTexture, Rectf(vec2(0,0), vec2(mWidth, mHeight)) );
-    
+	//if( mFrameTexture )
+	//	gl::draw( mFrameTexture, Rectf(vec2(0,0), vec2(mWidth, mHeight)) );
     // and then any children will be draw after this
+	mMovie->draw(0,0);
 }
 
-void XMovie::update( double elapsedSeconds )
-{
-	if( mMovie )
-		mFrameTexture = mMovie->getTexture();
+void XMovie::update( double elapsedSeconds ){
+	if (mMovie) {
+		mMovie->update();
+		//mFrameTexture = mMovie->getTexture();
+	}
 }
 
 void XMovie::loadXml( ci::XmlTree &xml )
@@ -44,7 +45,8 @@ void XMovie::loadXml( ci::XmlTree &xml )
 	// get/set properties from xml
 	if ( xml.hasAttribute( "path" ) )
 	{
-		mMovie = qtime::MovieGl::create( app::getAssetPath( xml.getAttributeValue<std::string>( "path" ) ) );
+		mMovie = std::shared_ptr<ciWMFVideoPlayer>(new ciWMFVideoPlayer());
+		mMovie->loadMovie(app::getAssetPath(xml.getAttributeValue<std::string>("path")));
 		mMovie->play();
 	}
 }

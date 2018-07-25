@@ -2,8 +2,8 @@
 #include "XRect.h"
 #include "cinder/Vector.h"
 #include "cinder/Color.h"
-#include "cinder/gl/Texture.h"
-#include "cinder/qtime/QuickTimeGl.h"
+//#include "cinder/gl/Texture.h"
+#include "ciWMFVideoPlayer.h"
 
 namespace xui {
 
@@ -24,16 +24,16 @@ public:
     
 	virtual bool getLoop() const { return mIsLooping; }
 	virtual void setLoop(bool loop) { mIsLooping = loop; mMovie->setLoop(mIsLooping); }
-	virtual void seekToStart() { mMovie->seekToStart(); }
 	virtual void stop() { mMovie->stop(); }
 	virtual void play() { mMovie->play(); }
-    
+	virtual void pause() { mMovie->pause(); }
 protected:
 	XMovie() : mIsLooping(false) {}
     
 	bool mIsLooping;
-    ci::gl::TextureRef mFrameTexture;
-	ci::qtime::MovieGlRef mMovie;
+    //ci::gl::TextureRef mFrameTexture;
+	//ci::qtime::MovieGlRef mMovie;
+	ciWMFVideoPlayerRef mMovie;
 };
 
 }
