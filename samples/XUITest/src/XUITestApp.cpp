@@ -11,10 +11,7 @@ using namespace xui;
 
 class XUITestApp : public App {
   public:
-	void setup() override;
-	void mouseDown( MouseEvent event ) override;
-	void update() override;
-	void draw() override;
+	void setup();
 
 	void onSceneLoadTryEvent(XUI::SceneLoadEventResponse response);
 	void onSceneLoadSuccessEvent(XUI::SceneLoadEventResponse response);
@@ -35,19 +32,6 @@ void XUITestApp::setup() {
 
 	// ui setup
 	mXUI->loadScene("ui.xml");
-}
-
-void XUITestApp::mouseDown( MouseEvent event )
-{
-}
-
-void XUITestApp::update()
-{
-}
-
-void XUITestApp::draw()
-{
-	gl::clear( Color( 0, 0, 0 ) ); 
 }
 
 void XUITestApp::consoleOut(std::string msg)
