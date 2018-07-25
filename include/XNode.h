@@ -3,6 +3,8 @@
 #include <map>
 #include <vector>
 #include <tuple>
+#include <deque>
+#include <functional>
 
 #include <boost/logic/tribool.hpp>
 #include <boost/tuple/tuple_comparison.hpp>

@@ -1,5 +1,8 @@
 #pragma once
 
+#include <experimental\filesystem>
+#include <functional>
+#include <deque>
 #include "cinder/Filesystem.h"
 #include "cinder/DataSource.h"
 
@@ -16,6 +19,7 @@ public:
     virtual void notify();
     
 protected:
+	std::time_t toTime(ci::fs::file_time_type ftime);
     ci::fs::path                            mRelativePath;
     std::time_t                             mLastTimeWritten;
     std::function<void(ci::DataSourceRef)>  mCallback;

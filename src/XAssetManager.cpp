@@ -5,14 +5,14 @@ using namespace xui;
 
 XAsset::XAsset( ci::fs::path relativePath, std::function<void(ci::DataSourceRef)> callback )
 :   mRelativePath( relativePath ),
-    mCallback( callback ),
-    mLastTimeWritten( ci::fs::last_write_time( ci::app::getAssetPath( relativePath ) ) )
+    mCallback( callback ) 
 {
+	mLastTimeWritten = toTime(ci::fs::last_write_time(ci::app::getAssetPath(relativePath)));
 }
 
 void XAsset::refresh()
 {
-    std::time_t time = ci::fs::last_write_time( ci::app::getAssetPath( mRelativePath ) );
+    std::time_t time = toTime(std::filesystem::last_write_time( ci::app::getAssetPath( mRelativePath ) ));
     if( time > mLastTimeWritten ){
         mLastTimeWritten   = time;
         notify();
@@ -23,19 +23,25 @@ void XAsset::notify()
     mCallback( ci::app::loadAsset( mRelativePath ) );
 }
 
+std::time_t XAsset::toTime(ci::fs::file_time_type ftime) {
+	return decltype(ftime)::clock::to_time_t(ftime);
+}
+
+
 
 
 XAssetPair::XAssetPair( ci::fs::path firstRelativePath, ci::fs::path secondRelativePath, std::function<void(ci::DataSourceRef, ci::DataSourceRef)> callback )
 :   mRelativePath( std::make_pair( firstRelativePath, secondRelativePath ) ),
-    mLastTimeWritten( std::make_pair( ci::fs::last_write_time( ci::app::getAssetPath( firstRelativePath ) ), ci::fs::last_write_time( ci::app::getAssetPath( secondRelativePath ) ) ) ),
+    mLastTimeWritten( std::make_pair( toTime(ci::fs::last_write_time( ci::app::getAssetPath( firstRelativePath ) )), 
+		toTime(ci::fs::last_write_time( ci::app::getAssetPath( secondRelativePath ) ) ) )),
     mCallback( callback )
 {
 }
     
 void XAssetPair::refresh()
 {
-    std::time_t firstTime = ci::fs::last_write_time( ci::app::getAssetPath( mRelativePath.first ) );
-    std::time_t secondTime = ci::fs::last_write_time( ci::app::getAssetPath( mRelativePath.second ) );
+    std::time_t firstTime = toTime(ci::fs::last_write_time( ci::app::getAssetPath( mRelativePath.first ) ));
+    std::time_t secondTime = toTime(ci::fs::last_write_time( ci::app::getAssetPath( mRelativePath.second ) ));
     if( firstTime > mLastTimeWritten.first || secondTime > mLastTimeWritten.second ){
         mLastTimeWritten.first      = firstTime;
         mLastTimeWritten.second     = secondTime;
