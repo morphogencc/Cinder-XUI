@@ -24,15 +24,16 @@ public:
     
 	virtual bool getLoop() const { return mIsLooping; }
 	virtual void setLoop(bool loop) { mIsLooping = loop; mMovie->setLoop(mIsLooping); }
+	virtual bool getFullscreen() const { return mIsFullscreen; }
+	virtual void setFullscreen(bool fullscreen);
 	virtual void stop() { mMovie->stop(); }
 	virtual void play() { mMovie->play(); }
 	virtual void pause() { mMovie->pause(); }
 protected:
-	XMovie() : mIsLooping(false) {}
+	XMovie() : mIsLooping(false), mIsFullscreen(false) {}
     
 	bool mIsLooping;
-    //ci::gl::TextureRef mFrameTexture;
-	//ci::qtime::MovieGlRef mMovie;
+	bool mIsFullscreen;
 	ciWMFVideoPlayerRef mMovie;
 };
 

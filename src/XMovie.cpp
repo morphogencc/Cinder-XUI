@@ -23,18 +23,13 @@ XMovieRef XMovie::create( ci::XmlTree &xml )
 
 void XMovie::draw(float opacity)
 {
-    // Matrix is already applied so we can draw at origin
     gl::color( mColor * ColorA(1.0f, 1.0f, 1.0f, mOpacity * opacity) );
-	//if( mFrameTexture )
-	//	gl::draw( mFrameTexture, Rectf(vec2(0,0), vec2(mWidth, mHeight)) );
-    // and then any children will be draw after this
-	mMovie->draw(0,0);
+	mMovie->draw(0,0,mWidth,mHeight);
 }
 
 void XMovie::update( double elapsedSeconds ){
 	if (mMovie) {
 		mMovie->update();
-		//mFrameTexture = mMovie->getTexture();
 	}
 }
 
@@ -48,5 +43,20 @@ void XMovie::loadXml( ci::XmlTree &xml )
 		mMovie = std::shared_ptr<ciWMFVideoPlayer>(new ciWMFVideoPlayer());
 		mMovie->loadMovie(app::getAssetPath(xml.getAttributeValue<std::string>("path")));
 		mMovie->play();
+	}
+
+	mIsLooping = (xml.getAttributeValue("loop", 0) == 1 || xml.getAttributeValue<std::string>("loop", "") == "true");
+	mIsFullscreen = (xml.getAttributeValue("fullscreen", 0) == 1 || xml.getAttributeValue<std::string>("fullscreen", "") == "true");
+
+	setLoop(mIsLooping);
+	setFullscreen(mIsFullscreen);
+}
+
+void XMovie::setFullscreen(bool fullscreen) {
+	mIsFullscreen = fullscreen;
+	if (mIsFullscreen) {
+		setPos(ci::vec2(0,0));
+		mWidth = ci::app::getWindowWidth();
+		mHeight = ci::app::getWindowHeight();
 	}
 }

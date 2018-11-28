@@ -362,6 +362,7 @@ Name | Description
 -----|-------------
 path | video to play in this control, should be relative path to a QuickTime video in the assets folder
 loop | whether the video should loop or not
+fullscreen | whether the video should play fullscreen or not
 
 __Lua Callbacks:__
 
