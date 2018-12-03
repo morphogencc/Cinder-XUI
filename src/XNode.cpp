@@ -319,10 +319,19 @@ XNodeRef XNode::getChildById( const std::string &childId ) const
 
 void XNode::setState( std::string stateId )
 {
+	// search through local states first, and see if we can activate one
 	std::map<std::string, XNodeState>::iterator it = mStates.find( stateId );
 	if ( it != mStates.end() ) 
 	{
 		it->second.set();
+	}
+
+	// if we can't find a locally scoped state, look in the global scope
+	if (stateId != "" && !mParent.expired()) {
+		std::shared_ptr<XScene> ptr = mRoot.lock();
+		if (ptr) {
+			ptr->setState(stateId);
+		}
 	}
 }
 
