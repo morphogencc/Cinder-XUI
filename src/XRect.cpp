@@ -153,9 +153,9 @@ void XRect::setProperty( const XNodeStateProperty& prop )
 	if (prop.mType == "color")
 		setColor( hexToColor(prop.mValue.c_str()) );
     if (prop.mType == "strokeColor")
-        setStrokeColor( hexToColor(prop.mValue.c_str()) );
+		setStrokeColor( hexToColor(prop.mValue.c_str()) );
 	if (prop.mType == "width")
-		app::timeline().apply( &mWidth, (float)atof(prop.mValue.c_str()), prop.mTime, prop.mEaseFn );
+		app::timeline().apply(&mWidth, (float)atof(prop.mValue.c_str()), prop.mTime, prop.mEaseFn);
 	if (prop.mType == "height")
 		app::timeline().apply( &mHeight, (float)atof(prop.mValue.c_str()), prop.mTime, prop.mEaseFn );
 	else

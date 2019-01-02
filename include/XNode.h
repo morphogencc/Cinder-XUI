@@ -169,7 +169,7 @@ public:
 	void setX( float x )						{ mX = x; }
 	void setY( float y )						{ mY = y; }
 	void setPos( const ci::vec2 &pos )			{ mX = pos.x; mY = pos.y; }
-	void setRotation( float rotation )			{ mRotation = rotation; }
+	void setRotation( float rotation )			{ mRotation = rotation / 180.0f * M_PI; }
 	void setScale( const ci::vec2 &scale )		{ mScale = scale; }
 	void setOpacity( float opacity )			{ mOpacity = opacity; }
 

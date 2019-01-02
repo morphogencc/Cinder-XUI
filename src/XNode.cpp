@@ -147,6 +147,9 @@ void XNode::loadXml(ci::XmlTree &xml)
 	float rotation = xml.getAttributeValue( "rotation", 0.0f );
 	setRotation( rotation );
 
+	float scale = xml.getAttributeValue("scale", 1.0f);
+	setScale(glm::vec2(scale, scale));
+
 	std::string enabledStr = xml.getAttributeValue<std::string>("enabled", "true");
 	setEnabled(enabledStr == "true" || enabledStr == "TRUE" || atoi(enabledStr.c_str()) == 1);
 
