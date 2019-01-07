@@ -142,6 +142,7 @@ public:
     XNodeRef getChildById( const std::string &childId ) const;
 
 // STATES
+	std::string getCurrentState() { return mCurrentState; }
     void setState( std::string stateId );
 	virtual void setProperty( const XNodeStateProperty& prop );
 
@@ -218,6 +219,7 @@ public:
 	virtual void setLoop(bool loop) { }
 	virtual void seekToStart() { }
 	virtual void stop() { }
+	virtual void pause() { }
 	virtual void play() { }
     
     // play audio
@@ -414,8 +416,8 @@ protected:
 	ci::Anim<float> mX;
 	ci::Anim<float> mY;
 	ci::Anim<float> mOpacity;
-	ci::vec2 mScale;
 	float mRotation;
+	ci::vec2 mScale;
 
 	// guesture transformation
 	glm::mat4	mGuesturesMatrix;
@@ -445,6 +447,7 @@ protected:
 	ci::CallbackMgr<bool(XSceneEventRef)> mCbMouseUp;
 
 	std::map<std::string, XNodeState> mStates;
+	std::string mCurrentState;
 };
 
 ci::ColorA hexToColor( const std::string &hex );

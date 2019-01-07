@@ -66,6 +66,7 @@ protected:
     
 	ci::Anim<float> mWidth;
 	ci::Anim<float> mHeight;
+	ci::Anim<float> mZedAngle;
 	ci::ColorA mColor;
     ci::ColorA mStrokeColor;
     float mCornerRadius;

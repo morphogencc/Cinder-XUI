@@ -103,7 +103,7 @@ void XNodeState::set()
 		mNode->dispatchStateEvent( mEvent );
 }
 
-XNode::XNode() : mVisible(true), mEnabled(true), mX(0.0f), mY(0.0f), mScale(ci::vec2(1.0f, 1.0f)), mRotation(0.0f), mOpacity(1.0f), mScript(NULL), mMouseDownInside(false)
+XNode::XNode() : mVisible(true), mEnabled(true), mX(0.0f), mY(0.0f), mScale(ci::vec2(1.0f, 1.0f)), mRotation(0.0f), mOpacity(1.0f), mScript(NULL), mMouseDownInside(false), mCurrentState("")
 {	
 }
 
@@ -327,6 +327,7 @@ void XNode::setState( std::string stateId )
 	if ( it != mStates.end() ) 
 	{
 		it->second.set();
+		mCurrentState = it->first;
 	}
 
 	// if we can't find a locally scoped state, look in the global scope

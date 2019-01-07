@@ -13,6 +13,7 @@ XRect::XRect()
 {
 	mWidth = 0.0f;
 	mHeight = 0.0f;
+	mZedAngle = 0.0f;
 	mColor = ci::Color::white();
     mStrokeColor = ColorA(0.0f, 0.0f, 0.0f, 0.0f);
     mCornerRadius = 0.0f;
@@ -137,7 +138,7 @@ void XRect::loadXml(ci::XmlTree &xml)
 
 	// get/set properties from xml
 	mWidth = xml.getAttributeValue( "width", 0.0f );
-	mHeight = xml.getAttributeValue( "height", 0.0f );
+	mHeight = xml.getAttributeValue("height", 0.0f);
 	mPanEnabled = (xml.getAttributeValue("panEnabled", 0) == 1 || xml.getAttributeValue<std::string>("panEnabled", "") == "true");
 	mScaleEnabled = (xml.getAttributeValue("scaleEnabled", 0) == 1 || xml.getAttributeValue<std::string>("scaleEnabled", "") == "true");
 	mRotationEnabled = (xml.getAttributeValue("rotateEnabled", 0) == 1 || xml.getAttributeValue<std::string>("rotateEnabled", "") == "true");
@@ -157,7 +158,9 @@ void XRect::setProperty( const XNodeStateProperty& prop )
 	if (prop.mType == "width")
 		app::timeline().apply(&mWidth, (float)atof(prop.mValue.c_str()), prop.mTime, prop.mEaseFn);
 	if (prop.mType == "height")
-		app::timeline().apply( &mHeight, (float)atof(prop.mValue.c_str()), prop.mTime, prop.mEaseFn );
+		app::timeline().apply(&mHeight, (float)atof(prop.mValue.c_str()), prop.mTime, prop.mEaseFn);
+	else if (prop.mType == "rotation")
+		app::timeline().appendTo(&mZedAngle, (float)(atof(prop.mValue.c_str()) / 180.0f * M_PI * -1.0), prop.mTime, prop.mEaseFn).updateFn([=] { mRotation.z = mZedAngle; });
 	else
 		XNode::setProperty( prop );
 }

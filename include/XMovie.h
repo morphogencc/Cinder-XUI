@@ -26,9 +26,9 @@ public:
 	virtual void setLoop(bool loop) { mIsLooping = loop; mMovie->setLoop(mIsLooping); }
 	virtual bool getFullscreen() const { return mIsFullscreen; }
 	virtual void setFullscreen(bool fullscreen);
-	virtual void stop() { mMovie->stop(); }
+	virtual void stop() { mMovie->stop(); std::printf("Movie Stopped"); }
 	virtual void play() { mMovie->play(); }
-	virtual void pause() { mMovie->pause(); }
+	virtual void pause() { mMovie->pause(); std::printf("Movie Paused");  }
 protected:
 	XMovie() : mIsLooping(false), mIsFullscreen(false) {}
     
