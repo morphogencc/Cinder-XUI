@@ -78,6 +78,14 @@ void XText::setTextAlignment(std::string alignmentName)
 void XText::update()
 {
 	// render our text surface
-	mTextBox.setSize( vec2( mWidth, mHeight ) );
+	if (mWidth && mHeight) {
+		// if a width and height were manually set, then set the textbox to whatever size we set
+		mTextBox.setSize(vec2(mWidth, mHeight));
+	}
+	else {
+		// otherwise, measure the text box and give us a new default size
+		mWidth = mTextBox.measure().x;
+		mHeight = mTextBox.measure().y;
+	}
 	mTextTexture = gl::Texture::create( mTextBox.render() );
 }
