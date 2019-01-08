@@ -78,7 +78,7 @@ void XText::setTextAlignment(std::string alignmentName)
 void XText::update()
 {
 	// render our text surface
-	if (mWidth && mHeight) {
+	if (mWidth || mHeight) {
 		// if a width and height were manually set, then set the textbox to whatever size we set
 		mTextBox.setSize(vec2(mWidth, mHeight));
 	}
