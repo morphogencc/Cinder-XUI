@@ -84,8 +84,8 @@ void XText::update()
 	}
 	else {
 		// otherwise, measure the text box and give us a new default size
-		mWidth = mTextBox.measure().x;
-		mHeight = mTextBox.measure().y;
+		mWidth = mTextBox.measure().x + 1;
+		mHeight = mTextBox.measure().y + 1;
 	}
 	mTextTexture = gl::Texture::create( mTextBox.render() );
 }
