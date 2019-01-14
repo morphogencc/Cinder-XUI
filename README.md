@@ -264,7 +264,7 @@ delay | execute some lua code after a period of time
 
 ### __Image__
 
-Image inherits from Rect and is used to display an image in a rectangular area on screen.
+Image inherits from Rect and is used to display an image in a rectangular area on screen.  Note that Image objects cannot change size; they will ONLY render at the size that the asset is made!
 
 Example:
 

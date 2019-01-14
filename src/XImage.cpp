@@ -38,10 +38,7 @@ void XImage::loadXml( ci::XmlTree &xml )
 		mTexture = gl::Texture::create(loadImage(app::loadAsset(xml.getAttributeValue<std::string>("texture"))));
 
 		// if width and height have not been set, default to default texture's size
-		if (mWidth == 0.0f && mHeight == 0.0f)
-		{
-			mWidth = (float)mTexture->getWidth();
-			mHeight = (float)mTexture->getHeight();
-		}
+		mWidth = (float)mTexture->getWidth();
+		mHeight = (float)mTexture->getHeight();
 	}
 }
