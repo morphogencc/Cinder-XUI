@@ -222,6 +222,10 @@ public:
 	virtual void pause() { }
 	virtual void play() { }
     
+	// image
+	virtual void setTexture(const std::string& path) {}
+	virtual std::string getTexture() const { return ""; }
+
     // play audio
     void playSound( std::string filename );
     

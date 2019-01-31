@@ -33,12 +33,17 @@ void XImage::loadXml( ci::XmlTree &xml )
 	XRect::loadXml(xml);
 
 	// get/set properties from xml
-	if (xml.hasAttribute("texture"))
-	{
-		mTexture = gl::Texture::create(loadImage(app::loadAsset(xml.getAttributeValue<std::string>("texture"))));
-
-		// if width and height have not been set, default to default texture's size
-		mWidth = (float)mTexture->getWidth();
-		mHeight = (float)mTexture->getHeight();
+	if (xml.hasAttribute("texture")) {
+		setTexture(xml.getAttributeValue<std::string>("texture"));
 	}
+}
+
+void XImage::setTexture(const std::string &path) {
+	mTexturePath = path;
+	mTexture = gl::Texture::create(loadImage(app::loadAsset(path)));
+
+	// if width and height have not been set, default to default texture's size
+	mWidth = (float)mTexture->getWidth();
+	mHeight = (float)mTexture->getHeight();
+
 }

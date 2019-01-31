@@ -20,11 +20,13 @@ public:
     void draw(float opacity = 1.0f);
 
 	void loadXml( ci::XmlTree &xml );
-	void setTexture( ci::gl::TextureRef texture ) { mTexture = texture; }
+	void setTexture(const std::string &path);
+	std::string getTexture() const { return mTexturePath; }
     
 protected:
-	XImage() {}
+	XImage() : mTexturePath("") {}
     
+	std::string mTexturePath;
     ci::gl::TextureRef mTexture;
 };
 
