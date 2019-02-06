@@ -161,6 +161,7 @@ void XScript::bindNode(XNode* node)
 
 		// image
 		.addProperty("texture", &XNode::getTexture, &XNode::setTexture)
+		.addProperty("alignment", &XNode::getAlignment, &XNode::setAlignment)
 
 		// carousel
 		.addProperty("carouselEnabled", &XNode::getCarouselEnabled, &XNode::setCarouselEnabled)

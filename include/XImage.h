@@ -22,12 +22,16 @@ public:
 	void loadXml( ci::XmlTree &xml );
 	void setTexture(const std::string &path);
 	std::string getTexture() const { return mTexturePath; }
-    
+	void setAlignment(const std::string &alignment);
+	std::string getAlignment() const;
 protected:
-	XImage() : mTexturePath("") {}
+	XImage() : mTexturePath(""), mTexturePosition(ci::vec2(0, 0)), mTextureDimensions(ci::vec2(0,0)), mAlignment(Left) {}
     
 	std::string mTexturePath;
     ci::gl::TextureRef mTexture;
+	ci::vec2 mTexturePosition;
+	ci::vec2 mTextureDimensions;
+	AlignmentType mAlignment;
 };
 
 }

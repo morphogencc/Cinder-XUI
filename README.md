@@ -277,6 +277,9 @@ __Properties:__
 Name | Description
 -----|-------------
 texture | relative path to jpeg, gif or png image in the assets folder
+alignment | "left" (locked to top-left corner of frame) or "center" (centered in frame)
+width | width of frame (defaults to texture size if not provided)
+height | height of frame (defaults to texture size if not provided)
 
 __Lua Callbacks:__
 

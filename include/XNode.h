@@ -117,6 +117,7 @@ public:
 
 	typedef	enum { NodeTypeNode, NodeTypeRect, NodeTypeText, NodeTypeImage, NodeTypeButton, NodeTypeMovie, NodeTypeSVG, NodeTypeWeb, NodeTypeCarousel, NodeTypeControl } NodeType;
 	typedef enum { MaskNone, MaskClear, MaskWrite, MaskNotEqual, MaskEqual } MaskType;
+	typedef enum { Left, Center } AlignmentType;
 	virtual XNode::NodeType getType() { return NodeTypeNode; }
 
     static XNodeRef create();
@@ -225,6 +226,8 @@ public:
 	// image
 	virtual void setTexture(const std::string& path) {}
 	virtual std::string getTexture() const { return ""; }
+	virtual void setAlignment(const std::string& alignment) {}
+	virtual std::string getAlignment() const { return ""; }
 
     // play audio
     void playSound( std::string filename );
