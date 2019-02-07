@@ -103,7 +103,7 @@ void XNodeState::set()
 		mNode->dispatchStateEvent( mEvent );
 }
 
-XNode::XNode() : mVisible(true), mEnabled(true), mX(0.0f), mY(0.0f), mScale(ci::vec2(1.0f, 1.0f)), mRotation(0.0f), mOpacity(1.0f), mScript(NULL), mMouseDownInside(false), mCurrentState("")
+XNode::XNode() : mId(""), mVisible(true), mEnabled(true), mX(0.0f), mY(0.0f), mScale(ci::vec2(1.0f, 1.0f)), mRotation(0.0f), mOpacity(1.0f), mScript(NULL), mMouseDownInside(false), mCurrentState("")
 {	
 }
 
@@ -201,6 +201,12 @@ void XNode::loadXml(ci::XmlTree &xml)
 		}
 	}
     
+	// set initial state, if multiple states exist in this node
+	if (mStates.size() > 0) {
+		// get first item in the State Map, and grab its first item (the key, or string name)
+		mCurrentState = mStates.begin()->first;
+	}
+
     // create script node (don't load lua code yet, wait until we have loaded properties)
     mScript = new XScript();
     mScript->bindNode(this);
@@ -320,7 +326,21 @@ XNodeRef XNode::getChildById( const std::string &childId ) const
     return XNodeRef(); // aka NULL
 }
 
-void XNode::setState( std::string stateId )
+std::string XNode::getCurrentState() {
+	// check local state -- if the state has been set recently, then return this Node's state
+	if (mCurrentState != "") {
+		return mCurrentState;
+	}
+	else {
+		// get root (XScene Object)
+		std::shared_ptr<XScene> ptr = getRoot();
+		if (ptr) {
+			return ptr->mCurrentState;
+		}
+	}
+}
+
+void XNode::setState(const std::string &stateId )
 {
 	// search through local states first, and see if we can activate one
 	std::map<std::string, XNodeState>::iterator it = mStates.find( stateId );

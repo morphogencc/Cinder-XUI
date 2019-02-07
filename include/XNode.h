@@ -143,8 +143,8 @@ public:
     XNodeRef getChildById( const std::string &childId ) const;
 
 // STATES
-	std::string getCurrentState() { return mCurrentState; }
-    void setState( std::string stateId );
+	std::string getCurrentState();
+    void setState(const std::string &stateId );
 	virtual void setProperty( const XNodeStateProperty& prop );
 
 // VISIBILITY
