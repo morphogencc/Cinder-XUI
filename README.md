@@ -524,6 +524,27 @@ The second way it is possible to play audio is from Lua scripts with the playSou
 </Button>
 ```
 
+# Timers
+Cinder-XUI provides a simple timer that can be used in lua scripting to trigger time-based events (such as screen timeouts).
+
+An example timer script for any XNode object is:
+
+```
+<![CDATA[
+  this:setTimeout(5)
+  this:enableTimer()
+
+  function timeout()
+    print("Timeout activated!")
+    this:resetTimer()
+  end
+]]>
+```
+
+`this:setTimeout(5)` sets the timeout to run when 5 seconds have passed.  `this:enableTimer()` turns the timer on (by default, it is disabled, and can manually be disabled with the `this:disableTimer()` function).  The lua function `timeout()` is called whenever the timer period is exceeded, and automatically disables the timer after running once.  `this:resetTimer()` re-enables the timer, and sets the new timer to begin at the time the reset command was run.
+
+Timers are often used to initiate state changes back to the initial state, or to load a new XML file to bring the user back to a home screen.
+
 
 #Credits
 Developed at [Stimulant](http://stimulant.com).

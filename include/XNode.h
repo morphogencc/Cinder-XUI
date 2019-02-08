@@ -127,7 +127,7 @@ public:
 	void recursiveLuaMapChildren(XNode* node);
 
     // sub-classing is to be expected
-    virtual ~XNode() {}
+	virtual ~XNode() { }
     
 // CONTAINER METHODS
     
@@ -245,8 +245,16 @@ public:
     
     // if you have extra transforms/rotations that get applied in draw, override this too:
     virtual ci::mat4 getConcatenatedTransform() const;    
-    
-// ID METHODS
+
+	// timer methods
+	double getTimer() const { return ci::app::getElapsedSeconds() - mTimerStart; }
+	void resetTimer();
+	double getTimeout() const { return mTimeoutTime; }
+	void setTimeout(const double& timeoutInSeconds) { mTimeoutTime = timeoutInSeconds; }
+	void enableTimer() { mTimerEnabled = true; }
+	void disableTimer() { mTimerEnabled = false; }
+
+	// ID METHODS
         
     const std::string& getId() const { return mId; }
     void setId( std::string& newId ) { mId = newId; }
@@ -416,6 +424,9 @@ protected:
     bool mVisible;
 	bool mEnabled;
 	bool mMouseDownInside;
+	double mTimerStart;
+	double mTimeoutTime;
+	bool mTimerEnabled;
 
 	ci::mat4 mTransform;
 

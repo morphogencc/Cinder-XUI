@@ -103,7 +103,7 @@ void XNodeState::set()
 		mNode->dispatchStateEvent( mEvent );
 }
 
-XNode::XNode() : mId(""), mVisible(true), mEnabled(true), mX(0.0f), mY(0.0f), mScale(ci::vec2(1.0f, 1.0f)), mRotation(0.0f), mOpacity(1.0f), mScript(NULL), mMouseDownInside(false), mCurrentState("")
+XNode::XNode() : mId(""), mVisible(true), mEnabled(true), mX(0.0f), mY(0.0f), mScale(ci::vec2(1.0f, 1.0f)), mRotation(0.0f), mOpacity(1.0f), mScript(NULL), mMouseDownInside(false), mCurrentState(""), mTimerStart(0), mTimerEnabled(false)
 {	
 }
 
@@ -206,6 +206,9 @@ void XNode::loadXml(ci::XmlTree &xml)
 		// get first item in the State Map, and grab its first item (the key, or string name)
 		mCurrentState = mStates.begin()->first;
 	}
+
+	// set timer
+	mTimerStart = ci::app::getElapsedSeconds();
 
     // create script node (don't load lua code yet, wait until we have loaded properties)
     mScript = new XScript();
@@ -384,14 +387,23 @@ void XNode::deepUpdate( double elapsedSeconds )
 		guesturesUpdate();
 
 		// lua update
-		if (mScript)
+		if (mScript) {
 			mScript->call( "update", elapsedSeconds );
 
+			// check timer -- if enabled and timeout occurs, run the timeout function
+			if (mTimerEnabled && (getTimer() > mTimeoutTime)) {
+				mScript->call("timeout");
+				disableTimer();
+				resetTimer();
+			}
+		}
         // update children
         for(XNodeRef &child : mChildren) {        
             child->deepUpdate( elapsedSeconds );
         }
     }
+
+	
 }
 
 void XNode::deepDraw(float opacity, glm::vec2 offset)
@@ -490,6 +502,11 @@ mat4 XNode::getConcatenatedTransform() const
         return parent->getConcatenatedTransform() * transform;
     }
     return transform;
+}
+
+void XNode::resetTimer() {
+	mTimerStart = ci::app::getElapsedSeconds();
+	enableTimer();
 }
 
 void XNode::setMask( std::string maskType )
