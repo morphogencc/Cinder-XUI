@@ -6,9 +6,6 @@
 #include <deque>
 #include <functional>
 
-#include <boost/logic/tribool.hpp>
-#include <boost/tuple/tuple_comparison.hpp>
-
 #include "cinder/Cinder.h"
 #include "cinder/Function.h"
 #include "cinder/app/TouchEvent.h"
@@ -466,6 +463,9 @@ protected:
 
 	std::map<std::string, XNodeState> mStates;
 	std::string mCurrentState;
+
+	// utility
+	bool areStringsEqual(std::string s1, std::string s2);
 };
 
 ci::ColorA hexToColor( const std::string &hex );

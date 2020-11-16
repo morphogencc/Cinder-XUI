@@ -72,7 +72,8 @@
 
 #define dummynode		(&dummynode_)
 
-static const Node dummynode_ = {
+static 
+dummynode_ = {
   {{NULL}, LUA_TNIL},  /* value */
   {{{NULL}, LUA_TNIL, NULL}}  /* key */
 };

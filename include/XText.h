@@ -1,4 +1,5 @@
 #pragma once
+
 #include "XRect.h"
 #include "cinder/Vector.h"
 #include "cinder/Color.h"

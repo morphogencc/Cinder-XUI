@@ -23,8 +23,11 @@ void XAsset::notify()
     mCallback( ci::app::loadAsset( mRelativePath ) );
 }
 
-std::time_t XAsset::toTime(ci::fs::file_time_type ftime) {
-	return decltype(ftime)::clock::to_time_t(ftime);
+std::time_t XAsset::toTime(std::filesystem::file_time_type ftime) {
+    auto sctp = std::chrono::time_point_cast<std::chrono::system_clock::duration>(ftime - std::filesystem::file_time_type::clock::now()
+        + std::chrono::system_clock::now());
+    return std::chrono::system_clock::to_time_t(sctp);
+	// doesn't work anymore -- return decltype(ftime)::clock::to_time_t(ftime);
 }
 
 

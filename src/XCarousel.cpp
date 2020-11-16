@@ -3,8 +3,6 @@
 #include "cinder/ImageIO.h"
 #include "XCarousel.h"
 
-#include <boost/algorithm/string.hpp>
-
 using namespace ci;
 using namespace xui;
 
@@ -85,7 +83,7 @@ void XCarousel::loadXml( ci::XmlTree &xml )
 	while (i != xml.getChildren().end())
 	{
 		// only allow image children for now
-		if (boost::iequals((*i)->getTag(), "Image"))
+		if (areStringsEqual((*i)->getTag(), "Image"))
 		{
 			XImageRef image = XImage::create(*(*i));
 			mSlides.push_back(image);

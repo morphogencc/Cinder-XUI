@@ -71,22 +71,22 @@ public:
     template<typename T>
     ci::CallbackId registerSceneLoadTryEvent( T *obj, void (T::*callback)(SceneLoadEventResponse) )
     {
-        return mCbSceneLoadTryEvent.registerCb(std::bind1st(std::mem_fun(callback), obj));
+        return mCbSceneLoadTryEvent.registerCb(std::bind(callback, obj, std::placeholders::_1));
     }
     template<typename T>
     ci::CallbackId registerSceneLoadSuccessEvent( T *obj, void (T::*callback)(SceneLoadEventResponse) )
     {
-        return mCbSceneLoadSuccessEvent.registerCb(std::bind1st(std::mem_fun(callback), obj));
+        return mCbSceneLoadSuccessEvent.registerCb(std::bind(callback, obj, std::placeholders::_1));
     }
     template<typename T>
     ci::CallbackId registerSceneLoadFailureEvent( T *obj, void (T::*callback)(SceneLoadFailureEventResponse) )
     {
-        return mCbSceneLoadFailureEvent.registerCb(std::bind1st(std::mem_fun(callback), obj));
+        return mCbSceneLoadFailureEvent.registerCb(std::bind(callback, obj, std::placeholders::_1));
     }
     template<typename T>
     ci::CallbackId registerConsoleOut( T *obj, void (T::*callback)(std::string) )
     {
-        return mCbConsoleOut.registerCb(std::bind1st(std::mem_fun(callback), obj));
+        return mCbConsoleOut.registerCb(std::bind(callback, obj, std::placeholders::_1));
     }
     
     void setVisible( bool visible = true ){ mVisible = visible; }

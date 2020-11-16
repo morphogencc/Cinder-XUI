@@ -1,4 +1,3 @@
-#include <boost/algorithm/string.hpp>
 #include "cinder/app/App.h"
 #include "cinder/gl/gl.h"
 #include "XText.h"
@@ -64,12 +63,15 @@ void XText::setTextAlignment(std::string alignmentName)
 {
 	TextBox::Alignment alignment = TextBox::Alignment::LEFT;
 
-	if (boost::iequals(alignmentName, "left"))
+	if (areStringsEqual(alignmentName, "left")) {
 		alignment = TextBox::Alignment::LEFT;
-	if (boost::iequals(alignmentName, "center"))
+	}
+	else if (areStringsEqual(alignmentName, "center")) {
 		alignment = TextBox::Alignment::CENTER;
-	if (boost::iequals(alignmentName, "right"))
+	}
+	else if (areStringsEqual(alignmentName, "right")) {
 		alignment = TextBox::Alignment::RIGHT;
+	}
 
 	mTextBox.setAlignment(alignment);
 	update();

@@ -5,8 +5,6 @@
 #include "cinder/Timeline.h"
 #include "cinder/gl/gl.h"
 
-#include "boost/bind.hpp"
-
 // XUI
 #include "XUI.h"
 #include "XAssetManager.h"
@@ -67,20 +65,20 @@ void XUI::connectWindow( app::WindowRef window )
     app::App::get()->getSignalCleanup().connect( std::bind( &XUI::shutdown, this ) );
     
     window->getSignalDraw().connect( std::bind( &XUI::draw, this ) );
-    window->getSignalKeyDown().connect(boost::bind(&XUI::keyDown, this, _1));
-    window->getSignalKeyUp().connect(boost::bind(&XUI::keyUp, this, _1));
-    window->getSignalMouseMove().connect(boost::bind(&XUI::mouseMove, this, _1));
-    window->getSignalMouseDown().connect(boost::bind(&XUI::mouseDown, this, _1));
-    window->getSignalMouseDrag().connect(boost::bind(&XUI::mouseDrag, this, _1));
-    window->getSignalMouseUp().connect(boost::bind(&XUI::mouseUp, this, _1));
-    window->getSignalMouseWheel().connect(boost::bind(&XUI::mouseWheel, this, _1));
+    window->getSignalKeyDown().connect(std::bind(&XUI::keyDown, this, std::placeholders::_1));
+    window->getSignalKeyUp().connect(std::bind(&XUI::keyUp, this, std::placeholders::_1));
+    window->getSignalMouseMove().connect(std::bind(&XUI::mouseMove, this, std::placeholders::_1));
+    window->getSignalMouseDown().connect(std::bind(&XUI::mouseDown, this, std::placeholders::_1));
+    window->getSignalMouseDrag().connect(std::bind(&XUI::mouseDrag, this, std::placeholders::_1));
+    window->getSignalMouseUp().connect(std::bind(&XUI::mouseUp, this, std::placeholders::_1));
+    window->getSignalMouseWheel().connect(std::bind(&XUI::mouseWheel, this, std::placeholders::_1));
     
-    window->getSignalTouchesBegan().connect(boost::bind(&XUI::touchesBegan, this, _1));
-    window->getSignalTouchesMoved().connect(boost::bind(&XUI::touchesMoved, this, _1));
-    window->getSignalTouchesEnded().connect(boost::bind(&XUI::touchesEnded, this, _1));
+    window->getSignalTouchesBegan().connect(std::bind(&XUI::touchesBegan, this, std::placeholders::_1));
+    window->getSignalTouchesMoved().connect(std::bind(&XUI::touchesMoved, this, std::placeholders::_1));
+    window->getSignalTouchesEnded().connect(std::bind(&XUI::touchesEnded, this, std::placeholders::_1));
     
-    window->getSignalFileDrop().connect(boost::bind(&XUI::fileDrop, this, _1));
-    window->getSignalResize().connect(boost::bind(&XUI::resize, this));
+    window->getSignalFileDrop().connect(std::bind(&XUI::fileDrop, this, std::placeholders::_1));
+    window->getSignalResize().connect(std::bind(&XUI::resize, this));
 }
     
 void XUI::loadXUIAsset( std::string xuiAsset, std::function<void(XSceneRef)> callback )

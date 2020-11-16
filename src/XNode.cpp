@@ -3,8 +3,6 @@
 #include "XScript.h"
 #include "cinder/gl/gl.h"
 #include "cinder/app/App.h"
-#include <boost/range/adaptor/reversed.hpp>
-#include <boost/algorithm/string.hpp>
 
 // node types
 #include "XRect.h"
@@ -18,8 +16,6 @@
 #include "XSVG.h"
 #include "XCarousel.h"
 #include "XControl.h"
-
-using boost::make_tuple;
 
 using namespace ci;
 using namespace ci::app;
@@ -172,25 +168,25 @@ void XNode::loadXml(ci::XmlTree &xml)
 		// handle/create children
 		else if (xmlChild->isElement())
 		{
-			if (boost::iequals(xmlChild->getTag(), "Rect"))
+			if (areStringsEqual(xmlChild->getTag(), "Rect"))
 				addChild(XRect::create(*xmlChild));
-			else if (boost::iequals(xmlChild->getTag(), "Image"))
+			else if (areStringsEqual(xmlChild->getTag(), "Image"))
 				addChild(XImage::create(*xmlChild));
-			else if (boost::iequals(xmlChild->getTag(), "Button"))
+			else if (areStringsEqual(xmlChild->getTag(), "Button"))
 				addChild(XButton::create(*xmlChild));
-			else if (boost::iequals(xmlChild->getTag(), "Movie"))
+			else if (areStringsEqual(xmlChild->getTag(), "Movie"))
 				addChild(XMovie::create(*xmlChild));
-			else if (boost::iequals(xmlChild->getTag(), "Svg"))
+			else if (areStringsEqual(xmlChild->getTag(), "Svg"))
 				addChild(XSVG::create(*xmlChild));
-			else if (boost::iequals(xmlChild->getTag(), "Text"))
+			else if (areStringsEqual(xmlChild->getTag(), "Text"))
 				addChild(XText::create(*xmlChild));
 #if defined(CINDER_AWESOMIUM)
-			else if (boost::iequals(xmlChild->getTag(), "Web"))
+			else if (areStringsEqual(xmlChild->getTag(), "Web"))
 				addChild(XWeb::create(*xmlChild));
 #endif
-			else if (boost::iequals(xmlChild->getTag(), "Carousel"))
+			else if (areStringsEqual(xmlChild->getTag(), "Carousel"))
 				addChild(XCarousel::create(*xmlChild));
-			else if (boost::iequals(xmlChild->getTag(), "Control"))
+			else if (areStringsEqual(xmlChild->getTag(), "Control"))
                 addChild(XControl::create(*xmlChild));
 
 			// special case for states
@@ -562,9 +558,8 @@ bool XNode::deepMouseDown( ci::app::MouseEvent event )
 
     // check children
     // use reverse so that things that will be drawn on top are checked first
-    for (XNodeRef &node : boost::adaptors::reverse(mChildren)) 
-	{
-        if (node->deepMouseDown(event)) 
+	for (std::vector<xui::XNodeRef>::reverse_iterator node = mChildren.rbegin(); node != mChildren.rend(); ++node) {
+        if ((*node)->deepMouseDown(event)) 
 		{
             //consumed = true;
             break; // first child wins (mouse can't affect more than one child node)
@@ -592,10 +587,8 @@ bool XNode::deepMouseUp( ci::app::MouseEvent event )
     // in this current implementation, children only receive mouseUp calls 
     // if they returned true for mouse inside
     bool consumed = false;
-	for (XNodeRef &node : boost::adaptors::reverse(mChildren)) 
-	{
-		if (node->deepMouseUp(event)) 
-		{
+	for (std::vector<xui::XNodeRef>::reverse_iterator node = mChildren.rbegin(); node != mChildren.rend(); ++node) {
+		if ((*node)->deepMouseUp(event))  {
 			//consumed = true;
 			break;
 		}
@@ -628,10 +621,8 @@ bool XNode::deepMouseDrag( ci::app::MouseEvent event )
     // in this current implementation, children only receive mouseDrag calls 
     // if they have mouse down inside
     bool consumed = false;
-	for (XNodeRef &node : boost::adaptors::reverse(mChildren)) 
-	{
-		if (node->deepMouseDrag(event)) 
-		{
+	for (std::vector<xui::XNodeRef>::reverse_iterator node = mChildren.rbegin(); node != mChildren.rend(); ++node) {
+		if ((*node)->deepMouseDrag(event))  {
 			consumed = true;
 			break;
 		}
@@ -659,10 +650,10 @@ bool XNode::deepTouchBegan( TouchEvent::Touch touch )
     bool consumed = false;
     // check children
     // use reverse so that things that will be drawn on top are checked first
-    for (XNodeRef &node : boost::adaptors::reverse(mChildren)) {
-        if (node->deepTouchBegan(touch)) {
+	for (std::vector<xui::XNodeRef>::reverse_iterator node = mChildren.rbegin(); node != mChildren.rend(); ++node) {
+		if ((*node)->deepTouchBegan(touch)) {
             consumed = true;
-            mActiveTouches[touch.getId()] = node;
+            mActiveTouches[touch.getId()] = *node;
             break; // first child wins (touch can't affect more than one child node)
         }
     }    
@@ -928,4 +919,12 @@ ci::ColorA xui::hexToColor( const std::string &hex )
     }
 
 	return ci::ColorA(r, g, b, a);
+}
+
+bool XNode::areStringsEqual(std::string s1, std::string s2) {
+	return std::equal(s1.begin(), s1.end(), s2.begin(),
+		[](const char& a, const char& b)
+		{
+			return (std::tolower(a) == std::tolower(b));
+		});
 }

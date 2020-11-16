@@ -3,7 +3,6 @@
 #include "XScene.h"
 #include "XUI.h"
 #include "XAssetManager.h"
-#include <boost/algorithm/string.hpp>
 #include "rapidxml/rapidxml.hpp"
 #include "rapidxml/rapidxml_print.hpp"
 
