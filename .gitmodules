@@ -1,3 +1,6 @@
 [submodule "blocks/cinder-wmfvideo"]
 	path = blocks/cinder-wmfvideo
 	url = https://github.com/morphogencc/cinder-wmfvideo
+[submodule "blocks/lua"]
+	path = blocks/lua
+	url = https://github.com/lua/lua
