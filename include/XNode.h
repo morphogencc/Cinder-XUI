@@ -465,7 +465,7 @@ protected:
 	std::string mCurrentState;
 
 	// utility
-	bool areStringsEqual(std::string s1, std::string s2);
+	bool areStringsEqual(const std::string& s1, const std::string& s2);
 };
 
 ci::ColorA hexToColor( const std::string &hex );

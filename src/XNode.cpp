@@ -921,10 +921,15 @@ ci::ColorA xui::hexToColor( const std::string &hex )
 	return ci::ColorA(r, g, b, a);
 }
 
-bool XNode::areStringsEqual(std::string s1, std::string s2) {
-	return std::equal(s1.begin(), s1.end(), s2.begin(),
-		[](const char& a, const char& b)
-		{
-			return (std::tolower(a) == std::tolower(b));
-		});
+bool XNode::areStringsEqual(const std::string& s1, const std::string& s2) {
+	if (s1.length() == s2.length()) {
+		return std::equal(s2.begin(), s2.end(),
+			s1.begin(),
+			[&](const char& a, const char& b) {
+				return (std::tolower(a) == std::tolower(b));
+			});
+	}
+	else {
+		return false;
+	}
 }
